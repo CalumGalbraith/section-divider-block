@@ -338,7 +338,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/section-divider-block","version":"0.1.1","title":"Section Divider Block","category":"widgets","icon":"leftright","description":"SVG section divider block","example":{},"supports":{"html":false,"align":true,"color":{"gradients":true,"background":true},"dimensions":{"minHeight":false}},"attributes":{"toggleField":{"type":"boolean","default":false},"flipClass":{"type":"string","default":""},"dividerStyle":{"type":"string","default":"cross "},"dividerColor":{"type":"string","default":"black"}},"textdomain":"section-divider-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/section-divider-block","version":"0.1.1","title":"Section Divider Block","category":"widgets","icon":"leftright","description":"SVG section divider block","example":{},"supports":{"html":false,"align":true,"color":{"gradients":true,"background":true},"dimensions":{"minHeight":false}},"attributes":{"toggleField":{"type":"boolean","default":false},"flipClass":{"type":"string","default":""},"dividerStyle":{"type":"string","default":"cross "},"dividerColor":{"type":"string","default":"black"}},"textdomain":"section-divider-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
