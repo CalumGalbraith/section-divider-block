@@ -24,7 +24,7 @@ Credit to SVG Shape Dividers by SVGBackgrounds.com for the great selection of pr
 
 = Any further plans to add functionality?  =
 
-Plan on adding a larger selcetion of dividers and possibly height control.
+Plan on adding a larger selection of dividers and possibly height control.
 
 = Can I add my own dividers? =
 
