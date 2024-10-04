@@ -65,49 +65,77 @@ function Edit({
   setAttributes
 }) {
   const {
-    toggleField,
+    dividerPosition,
     dividerStyle,
-    dividerColor
+    dividerColor,
+    dividerFlip
   } = attributes;
-  const [color, setColor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)();
   const colors = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)('core/block-editor').getSettings().colors;
-  function onChangeToggleField(newValue) {
-    setAttributes({
-      // Toggle the state.
-      toggleField: !toggleField
-    });
-  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Divider Settings'),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
           __nextHasNoMarginBottom: true,
-          label: "Divider Position",
-          help: toggleField ? "Top Divider" : "Bottom Divider",
-          checked: toggleField,
-          onChange: onChangeToggleField
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Divider Position'),
+          help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)(dividerPosition ? 'Top Divider' : 'Bottom Divider'),
+          checked: dividerPosition,
+          onChange: value => setAttributes({
+            dividerPosition: !dividerPosition
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+          __nextHasNoMarginBottom: true,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Horizontal Flip'),
+          help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)(dividerFlip ? 'Flip' : 'No Flip'),
+          checked: dividerFlip,
+          onChange: value => setAttributes({
+            dividerFlip: !dividerFlip
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
-          label: "Divider Style",
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Divider Style'),
           value: dividerStyle,
           options: [{
-            label: 'Cross',
-            value: 'cross '
+            label: 'Arc',
+            value: 'section-divider-block-arc '
           }, {
             label: 'Bubble',
-            value: 'bubble '
+            value: 'section-divider-block-bubble '
           }, {
-            label: 'Asym Slope',
-            value: 'asym-slope '
+            label: 'Curve',
+            value: 'section-divider-block-curve '
           }, {
-            label: 'Asym Triangle',
-            value: 'asym-triangle '
+            label: 'Triangle',
+            value: 'section-divider-block-triangle '
           }, {
-            label: 'Inter Tilt',
-            value: 'inter-tilt '
+            label: 'Steps',
+            value: 'section-divider-block-steps '
           }, {
             label: 'Grunge',
-            value: 'grunge '
+            value: 'section-divider-block-grunge '
+          }, {
+            label: 'Asym Slope',
+            value: 'section-divider-block-asym-slope '
+          }, {
+            label: 'Asym Triangle',
+            value: 'section-divider-block-asym-triangle '
+          }, {
+            label: 'Layered Curves',
+            value: 'section-divider-block-layered-curves '
+          }, {
+            label: 'Inter Tilt',
+            value: 'section-divider-block-inter-tilt '
+          }, {
+            label: 'Inter Arc',
+            value: 'section-divider-block-inter-arc '
+          }, {
+            label: 'Inter Curves',
+            value: 'section-divider-block-inter-curves '
+          }, {
+            label: 'Inter Waves',
+            value: 'section-divider-block-inter-waves '
+          }, {
+            label: 'Inter Scattered Waves',
+            value: 'section-divider-block-inter-waves-scattered '
           }],
           onChange: value => setAttributes({
             dividerStyle: value
@@ -123,11 +151,10 @@ function Edit({
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: `${toggleField ? 'top ' : 'bottom '} ${dividerStyle}`,
+        className: `${dividerPosition ? 'section-divider-block-top ' : 'section-divider-block-bottom '} ${dividerFlip ? 'section-divider-block-flip ' : ''} ${dividerStyle}`,
         style: {
           backgroundColor: dividerColor
-        },
-        children: " "
+        }
       })
     })]
   });
@@ -227,11 +254,10 @@ function save({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: `${attributes.toggleField ? 'top ' : 'bottom '} ${attributes.dividerStyle}`,
+      className: `${attributes.dividerPosition ? 'section-divider-block-top ' : 'section-divider-block-bottom '} ${attributes.dividerFlip ? 'section-divider-block-flip ' : ''} ${attributes.dividerStyle}`,
       style: {
         backgroundColor: attributes.dividerColor
-      },
-      children: " "
+      }
     })
   });
 }
@@ -338,7 +364,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/section-divider-block","version":"0.1.1","title":"Section Divider Block","category":"widgets","icon":"leftright","description":"SVG section divider block","example":{},"supports":{"html":false,"align":true,"color":{"gradients":true,"background":true},"dimensions":{"minHeight":false}},"attributes":{"toggleField":{"type":"boolean","default":false},"flipClass":{"type":"string","default":""},"dividerStyle":{"type":"string","default":"cross "},"dividerColor":{"type":"string","default":"black"}},"textdomain":"section-divider-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/section-divider-block","version":"0.1.1","title":"Section Divider Block","category":"widgets","icon":"leftright","description":"SVG section divider block","example":{},"supports":{"html":false,"align":true,"color":{"gradients":false,"background":false},"spacing":{"padding":true,"margin":true},"dimensions":{"minHeight":false}},"attributes":{"dividerPosition":{"type":"boolean","default":false},"dividerFlip":{"type":"boolean","default":false},"dividerStyle":{"type":"string","default":"cross "},"dividerColor":{"type":"string","default":"black"}},"textdomain":"section-divider-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

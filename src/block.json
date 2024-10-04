@@ -12,21 +12,25 @@
 		"html": false,
 		"align": true,
 		"color": {
-			"gradients": true,
-			"background": true
+			"gradients": false,
+			"background": false
+		},
+		"spacing": {
+			"padding":true,
+			"margin":true
 		},
 		"dimensions": {
 			"minHeight": false
 		}
 	},
 	"attributes": {
-		"toggleField": {
+		"dividerPosition": {
 			"type" : "boolean",
 			"default": false
 		},
-		"flipClass": {
-			"type": "string",
-			"default": ""
+		"dividerFlip": {
+			"type" : "boolean",
+			"default": false
 		},
 		"dividerStyle": {
 			"type": "string",

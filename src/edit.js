@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
 import { useState } from 'react';
 
 
+
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -44,22 +45,15 @@ import './editor.scss';
 export default function Edit({ attributes, setAttributes }) {
 	
 	const {
-		toggleField,
+		dividerPosition,
 		dividerStyle,
-		dividerColor		
+		dividerColor,
+		dividerFlip,		
 	} = attributes;
 	
-	const [color, setColor] = useState();
 
 	const colors = useSelect('core/block-editor').getSettings().colors;
 
-	function onChangeToggleField( newValue ) {
-		setAttributes( {
-			// Toggle the state.
-			toggleField: ! toggleField
-		} );
-
-	}
 	
 
 	return (
@@ -68,22 +62,38 @@ export default function Edit({ attributes, setAttributes }) {
 					<PanelBody title={ __( 'Divider Settings' ) }>
 					<ToggleControl
 							__nextHasNoMarginBottom
-							label="Divider Position"
-							help={toggleField ? "Top Divider" : "Bottom Divider"}
-							checked={ toggleField }
-							onChange={ onChangeToggleField }
+							label={ __( 'Divider Position' ) }
+							help={ __(dividerPosition ? 'Top Divider' : 'Bottom Divider') }
+							checked={ dividerPosition }
+							onChange={  (value) => setAttributes({ dividerPosition: ! dividerPosition }) }
+						/>
+					<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __( 'Horizontal Flip' ) }
+							help={ __(dividerFlip ? 'Flip' : 'No Flip') }
+							checked={ dividerFlip }
+							onChange={  (value) => setAttributes({ dividerFlip: ! dividerFlip }) }
 						/>
 
 						<SelectControl
-						label="Divider Style"
+						label={ __( 'Divider Style' ) }
 						value={ dividerStyle }
 						options={ [
-							{ label: 'Cross', value:'cross '},
-							{ label: 'Bubble', value:'bubble '},
-							{ label: 'Asym Slope', value:'asym-slope '},
-							{ label: 'Asym Triangle', value:'asym-triangle '},
-							{ label: 'Inter Tilt', value:'inter-tilt '},
-							{ label: 'Grunge', value:'grunge '}
+							{ label: 'Arc', value:'section-divider-block-arc '},
+							{ label: 'Bubble', value:'section-divider-block-bubble '},
+							{ label: 'Curve', value:'section-divider-block-curve '},
+							{ label: 'Triangle', value:'section-divider-block-triangle '},
+							{ label: 'Steps', value:'section-divider-block-steps '},
+							{ label: 'Grunge', value:'section-divider-block-grunge '},
+							{ label: 'Asym Slope', value:'section-divider-block-asym-slope '},
+							{ label: 'Asym Triangle', value:'section-divider-block-asym-triangle '},
+							{ label: 'Layered Curves', value:'section-divider-block-layered-curves '},
+							{ label: 'Inter Tilt', value:'section-divider-block-inter-tilt '},
+							{ label: 'Inter Arc', value:'section-divider-block-inter-arc '},
+							{ label: 'Inter Curves', value:'section-divider-block-inter-curves '},
+							{ label: 'Inter Waves', value:'section-divider-block-inter-waves '},
+							{ label: 'Inter Scattered Waves', value:'section-divider-block-inter-waves-scattered '},
+							
 						]}
 						onChange={ (value) => setAttributes({ dividerStyle: value })}
 						/>
@@ -100,7 +110,9 @@ export default function Edit({ attributes, setAttributes }) {
 		<div { ...useBlockProps(
 				
 		) }>
-			<div className={`${toggleField ? 'top ' : 'bottom '} ${dividerStyle}`} style={{ backgroundColor: dividerColor }}> </div>
+			<div className={`${dividerPosition ? 'section-divider-block-top ' : 'section-divider-block-bottom '} ${dividerFlip ? 'section-divider-block-flip ' : ''} ${dividerStyle}`} style={{ backgroundColor: dividerColor }}>
+			</div>
+		
 		</div>
 		</>
 	);

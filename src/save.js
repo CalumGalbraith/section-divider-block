@@ -18,11 +18,12 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save({attributes}) {
 	
 	
-
 	return (
+
 		<div { ...useBlockProps.save() }>
 			{ 
-			<div className={`${attributes.toggleField ? 'top ' : 'bottom '} ${attributes.dividerStyle}`} style={{ backgroundColor: attributes.dividerColor }}> </div>
+			<div className={`${attributes.dividerPosition ? 'section-divider-block-top ' : 'section-divider-block-bottom '} ${attributes.dividerFlip ? 'section-divider-block-flip ' : ''} ${attributes.dividerStyle}`} style={{ backgroundColor: attributes.dividerColor }}> 
+			</div>
 			}
 		</div>
 	);
