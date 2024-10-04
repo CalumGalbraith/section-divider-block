@@ -123,7 +123,7 @@ function Edit({
             value: 'section-divider-block-layered-curves '
           }, {
             label: 'Layered Arch',
-            value: 'section-divider-block-inter-arch '
+            value: 'section-divider-block-layered-arch '
           }, {
             label: 'Inter Tilt',
             value: 'section-divider-block-inter-tilt '
