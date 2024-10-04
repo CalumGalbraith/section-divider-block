@@ -8,6 +8,7 @@
  .wp-block-create-block-section-divider-block {
 	position: relative;
 	padding: 75px 0;
+	z-index: 99;
 }
 
 .is-root-container, .is-layout-constrained {
@@ -142,6 +143,13 @@
 .section-divider-block-layered-curves {
 	-webkit-mask: url('svg-assets/layered-curves.svg');
 	mask: url('svg-assets/layered-curves.svg');
+	mask-size: 100% 100%; /* OR cover OR fixed values */
+  	mask-position: center top;
+  	mask-repeat: repeat-x;
+} 
+.section-divider-block-layered-curves {
+	-webkit-mask: url('svg-assets/layered-arch.svg');
+	mask: url('svg-assets/layered-arch.svg');
 	mask-size: 100% 100%; /* OR cover OR fixed values */
   	mask-position: center top;
   	mask-repeat: repeat-x;
